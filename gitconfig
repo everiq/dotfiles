@@ -1,0 +1,18 @@
+[user]
+	name = Sergey Fedorov
+	email = sergey.a.fedorov@gmail.com
+[core]
+	editor = vim
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD

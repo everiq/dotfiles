@@ -1,0 +1,6 @@
+# ack-grep configuration file
+
+--color
+--color-match=red
+--sort-files
+--recurse

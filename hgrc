@@ -1,0 +1,33 @@
+[ui]
+username = everiq
+verbose = False
+merge = meld
+ignore = ~/.hgignore
+
+[tortoisehg]
+vdiff = meld
+authorcolor = True
+longsummary = True
+logtbarstyle = small
+ui.language = en
+
+[extdiff]
+cmd.meld = meld
+opts.meld =
+
+[extensions]
+mq =
+color =
+fetch =
+rebase =
+zeroconf =
+progress =
+hgext.extdiff =
+purge =
+transplant =
+
+[web]
+push_ssl = false
+allow_push = *
+cacerts = /etc/ssl/certs/ca-certificates.crt
+
