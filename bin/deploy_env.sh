@@ -20,7 +20,7 @@ then
     exit 1
 fi
 
-ENV_FILES=`ls $ENV`
+ENV_FILES=`ls $ENV | grep -v README`
 
 for i in $ENV_FILES
 do
