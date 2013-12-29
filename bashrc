@@ -35,8 +35,18 @@ if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin/:$PATH"
 fi
 
+if [ -f /etc/arch-release ]; then
+    OS=arch
+else
+    # Guessing
+    OS=ubuntu
+fi
+
 #CDPATH=.:$HOME/Work
 PAGER='vim -'
+
+# Force colorfull output from gtest 
+export GTEST_COLOR=yes
 
 ################################################################################
 # Prompt {{{

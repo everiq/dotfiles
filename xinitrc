@@ -35,7 +35,12 @@ SESSION="xmonad"
 
 if [ "$SESSION" == "xmonad" ]; then
     xbindkeys
-    dropbox
+
+    if [ -f "$HOME/Pictures/background" ]; then
+        xloadimage -onroot -fullscreen "$HOME/Pictures/background"
+    fi
+
+    exec dropboxd
     exec xmonad
 else
     # Launch default session
