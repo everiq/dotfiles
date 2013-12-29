@@ -1,0 +1,80 @@
+! urxvt configuration
+
+! background and transparency
+URxvt*transparent: true
+URxvt*tintColor: Blue
+URxvt*saveLines: 12000
+URxvt*foreground: #c8c8c8
+URxvt*background: #0f0f0f
+
+! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt*scrollstyle: plain
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! font
+!URxvt*.font: 9x15
+URxvt*font: xft:gohufont
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
+! Disable default binding for C-S
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Extensions
+!URxvt*perl-ext-common: default,matcher,tabbed
+URxvt*perl-ext-common: default,matcher
+
+! url-launcher and url-select
+URxvt*colorUL: #4682B4
+URxvt*perl-ext: default,url-select
+URxvt*keysym.C-i: perl:url-select:select_next
+URxvt*url-launcher: /usr/bin/chromium
+URxvt*matcher.button: 1
+URxvt*keysym.C-Delete: perl:matcher:last
+URxvt*keysym.M-Delete: perl:matcher:list
+URxvt*url-select.launcher: /usr/bin/chromium -new-tab
+URxvt*url-select.underline: true
+
+! Tabs
+URxvt*tabbed.tabbar-fg: 2
+URxvt*tabbed.tabbar-bg: 0
+URxvt*tabbed.tab-fg: 3
+URxvt*tabbed.tab-bg: 0
+
+! Color theme
+!black
+*color0:  #251f1f
+*color8:  #5e5e5e
+!red
+*color1:  #eb4509
+*color9:  #eb4509
+!green
+*color2:  #94e76b
+*color10: #95e76b
+!yellow
+*color3:  #ffac18
+*color11: #ffac18
+!blue
+*color4:  #46aede
+*color12: #46aede
+!magenta
+*color5:  #e32c57
+*color13: #e32c57
+!cyan
+*color6:  #d6dbac
+*color14: #d6dbac
+!white
+*color7:  #efefef
+*color15: #efefef
