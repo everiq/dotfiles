@@ -1,7 +1,12 @@
+# XMonad compiled objects
 xmonad/xmonad-x86_64-linux
 xmonad/xmonad.errors
 xmonad/xmonad.hi
 xmonad/xmonad.o
 
+# Vim hidden files
 vim/.*
+
+# Vim swap files
+*.swp
 

@@ -1,29 +1,31 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
-       , borderColor = "black"
-       , border = TopB
-       , bgColor = "black"
-       , fgColor = "grey"
-       , position = Top
-       , lowerOnStart = True
-       , allDesktops = True
-       , hideOnStart = False
-       , persistent = False
-       , commands = [ Run StdinReader
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                    , Run BatteryP ["BAT0", "BAT1", "BAT2"]
-                          ["-t", "<acstatus>"
-                          , "-L", "10", "-H", "80"
-                          , "-l", "red", "-h", "green"
-                          , "--", "-O", "Charging: <left>%", "-o", "Battery: <left>%"
-                          ] 10
-                    , Run Kbd [("us", "US"), ("ru", "RU")]
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "}{ %cpu% | %memory% * %swap% | %wlp3s0% | <fc=#ffaaff>%battery%</fc> | %kbd% | <fc=#ee9a00>%date%</fc>"
-       }
+Config {
+    font = "xft:gohufont:size=11:antialias=true",
+    borderColor = "black",
+    border = TopB,
+    bgColor = "black",
+    fgColor = "grey",
+    position = Top,
+    lowerOnStart = True,
+    allDesktops = True,
+    hideOnStart = False,
+    persistent = False,
+    commands = [
+        Run StdinReader,
+        Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
+        Run Memory ["-t","Mem: <usedratio>%"] 10,
+        Run Swap [] 10,
+        Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10,
+        Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
+        Run BatteryP ["BAT0", "BAT1", "BAT2"]
+                     ["-t", "<acstatus>",
+                      "-L", "10", "-H", "80",
+                      "-l", "red", "-h", "green",
+                      "--", "-O", "Charging: <left>%", "-o", "Battery: <left>%"
+                     ] 10,
+        Run Kbd [("us", "US"), ("ru", "RU")]
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %wlp3s0% | <fc=#ffaaff>%battery%</fc> | %kbd% | <fc=#ee9a00>%date%</fc>"
+}
 
