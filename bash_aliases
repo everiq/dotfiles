@@ -156,11 +156,7 @@ if [ $UID -ne 0 ]; then
     alias poweroff='sudo systemctl poweroff'
     alias netctl='sudo netctl'
 
-    alias syncdate='\
-        sudo service ntp stop; \
-        sudo ntpdate -s time.nist.gov; \
-        sudo service ntp start
-    '
+    alias syncdate='sudo bash -c "service ntp stop; ntpdate -s time.nist.gov; service ntp start"'
 fi
 # }}}
 
