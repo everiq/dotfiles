@@ -40,6 +40,9 @@ set ttyfast
 " Use Unicode by default (perhaps, not for all terminals)
 set encoding=utf-8
 
+" Automatically save files before make, etc
+set autowrite
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -92,6 +95,9 @@ autocmd FileType text setlocal textwidth=78
 " Automatically open and close the popup menu / preview window
 autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
+" Register OCaml extensions
+autocmd BufRead,BufNewFile *.ml,*.mli compiler ocaml
+
 set completeopt=menuone,menu,longest,preview
 
 set formatoptions+=n " recognize numbered lists
@@ -135,8 +141,8 @@ if has("gui_running")
     set guioptions=aegit
 
     "set guifont=Monospace\ 9 " this is good for my ux31a laptop
-    set guifont=GohuFont\ 11 " custom font from ~/.fonts
-    " set guifont=Neep\ 10
+    "set guifont=GohuFont\ 11 " custom font from ~/.fonts
+    "set guifont=Neep\ 10
 endif
 
 "if &term =~ "xterm\\|rxvt"
@@ -150,26 +156,6 @@ endif
     "autocmd VimLeave * silent !echo -ne "\033]112\007"
     " use \003]12;gray\007 for gnome-terminal
 "endif
-
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" {{{ Syntax highlighting
-
-" Choose background style
-"set background=dark
-"set background=light
-
-syntax on
-
-" Use full color
-set t_Co=256
-
-" Select colorscheme
-"colorscheme torte
-"colorscheme evening
-colorscheme desert
-colorscheme molokai
 
 " }}}
 
@@ -295,5 +281,41 @@ let g:bufExplorerShowDirectories=1
 let g:Tlist_Exit_OnlyWindow = 1
 let g:Tlist_Highlight_Tag_On_BufEnter = 1
 
+"
+" Merlin (Additional support for OCaml)
+" 
+let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+execute "set rtp+=".s:ocamlmerlin."/vim"
+execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+
+"
+" Zenburn (colorscheme)
+"
+let g:zenburn_high_Contrast=1
+"let g:zenburn_transparent=1
+"let g:zenburn_alternate_Visual=1
+
 " }}}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{ Syntax highlighting
+
+" Choose background style
+"set background=dark
+set background=light
+
+syntax on
+
+" Use full color
+set t_Co=256
+
+" Select colorscheme
+"colorscheme torte
+"colorscheme desert
+"colorscheme molokai
+"colorscheme zenburn
+colorscheme wombat256mod
+
+" }}}
+
 
