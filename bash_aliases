@@ -34,7 +34,7 @@ alias dmesg='dmesg -HL'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 
-#alias ack='ack-grep'
+alias ack='ack-grep'
 
 alias vim='vim -X'
 
@@ -116,13 +116,20 @@ alias cddownloads='cd ~/Downloads'
 
 alias cdsand='cd ~/Work/sandbox'
 
+alias cdtimus='cd ~/Work/timus'
+
 # }}}
 
 ################################################################################
-# UVA {{{
+# UVA/Timus/SPOJ {{{
 #
 
 alias uva_gcc='g++ -lm -lcrypt -O2 -pipe'
+
+alias timus_gcc='g++ -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s -x c++ -Wl,-zstack-size=67108864 -O2 -Wno-unused-result'
+alias timus_g11='g++ -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s -x c++ -Wl,-zstack-size=67108864 -std=c++11 -O2 -Wno-unused-result'
+
+alias g11='g++ -std=c++11'
 
 # }}}
 

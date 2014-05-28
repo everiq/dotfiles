@@ -40,7 +40,6 @@ if [ "$SESSION" == "xmonad" ]; then
         xloadimage -onroot -fullscreen "$HOME/Pictures/background"
     fi
 
-    exec dropboxd
     exec xmonad
 else
     # Launch default session

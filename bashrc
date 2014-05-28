@@ -42,7 +42,7 @@ else
     OS=ubuntu
 fi
 
-#CDPATH=.:$HOME/Work
+CDPATH=.:$HOME/Work
 PAGER='vim -'
 
 # Force colorfull output from gtest 
@@ -95,4 +95,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # }}}
+
+# OPAM configuration
+. /home/everiq/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 

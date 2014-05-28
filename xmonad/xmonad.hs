@@ -25,7 +25,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = True
 
 -- Virtual screens
-myWorkspaces = ["1:sh", "2:dev", "3:web"] ++ map show [4..8] ++ ["9:tmp"]
+myWorkspaces = ["1:sh", "2:dev", "3:web", "4:torrent"] ++ map show [5..7] ++ ["8:video", "9:tmp"]
 
 -- Border colors
 myNormalBorderColor  = "#cccccc"
@@ -48,22 +48,21 @@ myLayout =
 -- Manage hook
 myManageHook = composeAll . concat $ [
     -- shifts
-    [className =? "Gvim"     --> viewShift "2:dev"],
-    [className =? "Chromium" --> viewShift "3:web"],
+    [className =? "Gvim"         --> viewShift "2:dev"],
+    [className =? "Chromium"     --> viewShift "3:web"],
+    [className =? "Transmission" --> viewShift "4:torrent"],
+    [className =? "Vlc"          --> viewShift "8:video"],
 
     -- custom floats
     [(className =? "Firefox" <&&> resource =? "Dialog") --> doFloat],
 
     -- borrowed from http://www.haskell.org/haskellwiki/Xmonad/General_xmonad.hs_config_tips
     [className =? c --> doFloat | c <- myFloatsC],
-    [fmap (c `isInfixOf`) className --> doFloat | c <- myMatchAnywhereFloatsC],
-    [fmap (c `isInfixOf`) title     --> doFloat | c <- myMatchAnywhereFloatsT]
-
+    [fmap (c `isInfixOf`) className --> doFloat | c <- myMatchAnywhereFloatsC]
     ]
     where
         myFloatsC = ["Xmessage", "Gimp"]
         myMatchAnywhereFloatsC = ["Pidgin", "Skype"]
-        myMatchAnywhereFloatsT = ["VLC"]
         viewShift = doF . liftM2 (.) W.greedyView W.shift
 
 

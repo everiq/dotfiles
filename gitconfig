@@ -6,7 +6,7 @@
 [color]
 	ui = true
 [merge]
-	tool = vimdiff
+	tool = meld
 [push]
 	default = simple
 [alias]
@@ -16,3 +16,9 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+    ll = log --pretty=format:'%h - %an, %ar : %s --decorate'
+    l1 = log --oneline --decorate
+	graph = log --graph --oneline --decorate
+	check = diff --check
+[credential]
+	helper = cache --timeout=3600
