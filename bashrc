@@ -12,6 +12,10 @@ if [ -r '/etc/profile' ]; then
     source /etc/profile
 fi
 
+if [ -r "$HOME/.dircolors" ]; then
+    eval `dircolors $HOME/.dircolors`
+fi
+
 ################################################################################
 # General
 #
@@ -96,6 +100,9 @@ fi
 
 # }}}
 
-# OPAM configuration
+################################################################################
+# OPAM configuration {{{
+
 . /home/everiq/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
+# }}}
