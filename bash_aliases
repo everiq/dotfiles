@@ -98,7 +98,7 @@ alias ...='cd ../..'
 # Go to the previous folder
 alias _='cd -'
 
-alias cdenv='cd ~/Work/dotfiles'
+alias cd.='cd ~/Work/dotfiles'
 
 alias cduva='cd ~/Work/puzzles/uva'
 alias cdspoj='cd ~/Work/puzzles/spoj'
