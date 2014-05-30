@@ -167,6 +167,9 @@ set pastetoggle=<F11>
 " force CTRL-L after F11 to update status line
 nnoremap <silent> <F11> <F11><C-L>
 
+" Save with sudo
+cmap w!! %!sudo tee > /dev/null %
+
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
