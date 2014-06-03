@@ -80,9 +80,12 @@ alias vim_functions='vim ~/.bash_functions'
 
 # Aptitude
 if [ "$OS" = "ubuntu" ]; then
-    alias install='sudo aptitude install'
-    alias update='sudo aptitude update'
-    alias upgrade='sudo aptitude safe-upgrade'
+    alias apts='aptitude search'
+    alias apti='sudo aptitude install'
+    alias aptu='sudo aptitude update'
+    alias aptuu='aptu && sudo aptitude safe-upgrade'
+    alias aptUU='aptu && sudo aptitude upgrade'
+    alias aptc='sudo apt-get autoremove && sudo apt-get clean'
 fi
 
 # }}}
@@ -118,6 +121,8 @@ alias cdsand='cd ~/Work/sandbox'
 
 alias cdtimus='cd ~/Work/timus'
 
+alias cdocaml='cd ~/Work/OCaml'
+
 # }}}
 
 ################################################################################
@@ -128,8 +133,10 @@ alias uva_gcc='g++ -lm -lcrypt -O2 -pipe'
 
 alias timus_gcc='g++ -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s -x c++ -Wl,-zstack-size=67108864 -O2 -Wno-unused-result'
 alias timus_g11='g++ -static -fno-strict-aliasing -DONLINE_JUDGE -lm -s -x c++ -Wl,-zstack-size=67108864 -std=c++11 -O2 -Wno-unused-result'
+alias tgcc=timus_gcc
+alias tg11=timus_g11
 
-alias g11='g++ -std=c++11'
+alias g11='g++ -std=c++11 -g'
 
 # }}}
 
