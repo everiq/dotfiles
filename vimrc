@@ -79,6 +79,7 @@ set showmatch matchtime=5
 " set foldmethod=syntax
 set foldmethod=marker
 set foldmarker={,}
+set foldlevelstart=99 " Do not close folds when opening new file
 
 " Keep track of tags
 set tagstack
