@@ -12,12 +12,8 @@ if [ -r '/etc/profile' ]; then
     source /etc/profile
 fi
 
-if [ -r "$HOME/.dircolors" ]; then
-    eval `dircolors $HOME/.dircolors`
-fi
-
 ################################################################################
-# General
+# General {{{
 #
 
 set -o vi
@@ -49,8 +45,24 @@ fi
 CDPATH=.:$HOME/Work
 PAGER='vim -'
 
+# }}}
+
+################################################################################
+# Colors {{{
+#
+
+if [ "$TERM" == "xterm" ]; then
+    export TERM=xterm-256color
+fi
+
+if [ -r "$HOME/.dircolors" ]; then
+    eval `dircolors $HOME/.dircolors`
+fi
+
 # Force colorfull output from gtest 
 export GTEST_COLOR=yes
+
+# }}}
 
 ################################################################################
 # Prompt {{{
@@ -83,7 +95,7 @@ function load_file()
 
     if [ -r "$file" ]; then
         echo "loading $file ..."
-        source "$file"
+        source "$file" >/dev/null 2>&1 || true
     fi
 }
 
@@ -103,6 +115,7 @@ fi
 ################################################################################
 # OPAM configuration {{{
 
-. /home/everiq/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+load_file ".opam/opam-init/init.sh"
 
 # }}}
+
