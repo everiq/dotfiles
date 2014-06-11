@@ -88,6 +88,8 @@ if [ "$OS" = "ubuntu" ]; then
     alias aptc='sudo apt-get autoremove && sudo apt-get clean'
 fi
 
+alias opami='opam install'
+
 # }}}
 
 ################################################################################
