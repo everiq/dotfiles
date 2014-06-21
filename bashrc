@@ -39,11 +39,12 @@ if [ -f /etc/arch-release ]; then
     OS=arch
 else
     # Guessing
-    OS=ubuntu
+    OS=debian
 fi
 
 CDPATH=.:$HOME/Work
 PAGER='vim -'
+EDITOR='vim'
 
 # }}}
 

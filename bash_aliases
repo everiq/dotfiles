@@ -29,7 +29,7 @@ alias du='du -c -h'
 alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
-alias dmesg='dmesg -HL'
+#alias dmesg='dmesg -HL'
 
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
@@ -37,6 +37,10 @@ alias vdir='vdir --color=auto'
 alias ack='ack-grep'
 
 alias vim='vim -X'
+
+# Spelling corrections
+alias les=less
+alias reload_Env=reload_env
 
 # }}}
 
@@ -79,9 +83,10 @@ alias vim_aliases='vim ~/.bash_aliases'
 alias vim_functions='vim ~/.bash_functions'
 
 # Aptitude
-if [ "$OS" = "ubuntu" ]; then
+if [ "$OS" = "debian" ]; then
     alias apts='aptitude search'
     alias apti='sudo aptitude install'
+    alias aptti='sudo aptitude -t testing install'
     alias aptu='sudo aptitude update'
     alias aptuu='aptu && sudo aptitude safe-upgrade'
     alias aptUU='aptu && sudo aptitude upgrade'

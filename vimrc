@@ -25,7 +25,7 @@ set autowrite
 set backupdir=./.backup,~/.backup,.,/tmp
 
 " Set vim history length
-set history=50
+set history=500
 
 " ignore equals characters in filenames allowing better filename completion with
 " CTRL-X, CTRL-F
@@ -49,12 +49,13 @@ set autowrite
 " {{{ Indents
 
 " Erase autoindents, join lines and make backspace work past insert location
-set backspace=indent,eol,start
+set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 filetype plugin indent on
 
-" Indent tabs by 5
+" Indent tabs by 4
 set shiftwidth=4 softtabstop=4 tabstop=4
+" set shiftwidth=2 softtabstop=2 tabstop=2
 " Replace tabs with spaces by default
 set expandtab
 
@@ -130,6 +131,10 @@ set statusline=%02n:%<%f\ %h%m%r%{GetPasteFlag()}\ %Y%=%-14.(%l/%L,%c%V%)\ %P
 set noerrorbells
 set novisualbell " it disables bells since t_vb is cleared
 set t_vb=
+
+" Mouse support
+set mouse=a
+set mousehide
 
 " Rewrite terminal title
 set title

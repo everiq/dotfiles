@@ -5,20 +5,38 @@
 	editor = vim
 [color]
 	ui = true
+	branch = auto
+	status = auto
+	diff = auto
 [merge]
 	tool = meld
+	defaulttoupstream = true
+	conflictstyle = diff3 
+	log = true
 [push]
-	default = simple
+	default = upstream
 [alias]
 	co = checkout
 	br = branch
 	ci = commit
-	st = status
+	st = status -sb
+	ff = merge --ff-only
 	unstage = reset HEAD --
 	last = log -1 HEAD
-    ll = log --pretty=format:'%h - %an, %ar : %s --decorate'
-    l1 = log --oneline --decorate
+	ll = log --format='%C(auto) %h - %ar, %an%d: %s' --decorate
+	l1 = log --oneline --decorate
 	graph = log --graph --oneline --decorate
+	diffi = diff --ignore-space-change
 	check = diff --check
+	vimdiff = difftool -y -t vimdiff
+	commit-update = commit --amend --no-edit
+	commit-update = commit --amend --no-edit
+	commit-update = commit --amend --no-edit
 [credential]
 	helper = cache --timeout=3600
+[pager]
+	status = on
+[branch]
+	autosetuprebase = always
+[log]
+	decorate = true
