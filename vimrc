@@ -194,6 +194,10 @@ map ; :
 " Prettify XML
 map _xml <ESC>:1,$!xmllint --format -<CR>
 
+" Build integration
+nnoremap <silent> <F5> :make -j3<CR>
+nnoremap <silent> <C-F5> :make -j3 test<CR>
+
 " Tag List
 nnoremap <silent> <F9> :TlistToggle<CR>
 
