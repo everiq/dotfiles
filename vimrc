@@ -55,7 +55,7 @@ filetype plugin indent on
 
 " Indent tabs by 4
 set shiftwidth=4 softtabstop=4 tabstop=4
-" set shiftwidth=2 softtabstop=2 tabstop=2
+"set shiftwidth=2 softtabstop=2 tabstop=2
 " Replace tabs with spaces by default
 set expandtab
 
@@ -100,6 +100,10 @@ autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " Register OCaml extensions
 autocmd BufRead,BufNewFile *.ml,*.mli compiler ocaml
 
+" Nifty hack to read pdf/doc from vim
+autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
+autocmd BufReadPost *.doc silent %!antiword "%"
+
 set completeopt=menuone,menu,longest,preview
 
 set formatoptions+=n " recognize numbered lists
@@ -133,7 +137,7 @@ set novisualbell " it disables bells since t_vb is cleared
 set t_vb=
 
 " Mouse support
-set mouse=a
+"set mouse=a
 set mousehide
 
 " Rewrite terminal title
@@ -147,8 +151,8 @@ if has("gui_running")
     set guioptions=aegit
 
     "set guifont=Monospace\ 9 " this is good for my ux31a laptop
-    "set guifont=GohuFont\ 11 " custom font from ~/.fonts
     "set guifont=Neep\ 10
+    set guifont=Inconsolata\ Medium\ 12
 endif
 
 "if &term =~ "xterm\\|rxvt"
@@ -249,10 +253,12 @@ autocmd FileType cpp inoreabbrev <silent> <buffer> //-- //----------------------
 autocmd FileType cpp inoreabbrev <silent> <buffer> //// ////////////////////////////////////////////////////////////////////////////////<CR><CR><UP>
 autocmd FileType cpp inoreabbrev <silent> <buffer> //== //======================================
 autocmd FileType cpp inoreabbrev <silent> <buffer> #### ########################################<CR>#<CR>#<UP>
-autocmd FileType cpp inoreabbrev <silent> <buffer> /** /**<CR><CR>/<UP> TODO(server):
+autocmd FileType cpp inoreabbrev <silent> <buffer> /** /**<CR><CR>/<UP> TODO(sergey):
 autocmd FileType cpp inoreabbrev <silent> <buffer> todo // TODO(sergey):
 autocmd FileType cpp inoreabbrev <silent> <buffer> ifndef #ifndef<CR>#define<CR><CR>#endif<UP><UP><UP><END>
 autocmd FileType cpp inoreabbrev <silent> <buffer> ifdef #ifdef<CR>#endif<UP><END>
+
+autocmd FileType ocaml inoreabbrev <silent> <buffer> todo (* TODO(sergey): *)<LEFT><LEFT><LEFT>
 
 " }}}
 
@@ -326,5 +332,4 @@ set t_Co=256
 colorscheme wombat256mod
 
 " }}}
-
 
