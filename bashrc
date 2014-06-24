@@ -8,9 +8,7 @@
 #
 
 # Load global bash profile
-if [ -r '/etc/profile' ]; then
-    source /etc/profile
-fi
+[ -r '/etc/profile' ] && source /etc/profile
 
 ################################################################################
 # General {{{
@@ -24,16 +22,26 @@ set -o vi
 
 shopt -s checkwinsize
 
+# Append to the history file, do not override it
+shopt -s histappend
+
 # don't put duplicate lines in the history and ignore lines starting from space
 export HISTCONTROL=ignoreboth
 export HISTSIZE=10240
 # save history timestamps
 export HISTTIMEFORMAT='%F %T '
 
-# Include custom bin to the search path
-if [ -d "$HOME/.bin" ]; then
-    PATH="$HOME/.bin/:$PATH"
+# Integration with ccache
+if [ -d "/usr/lib/ccache" ]; then
+    PATH="/usr/lib/ccache:$PATH"
+    CCACHE_PATH="/usr/bin"
 fi
+
+[ -d "$HOME/local/bin" ] && PATH="$HOME/local/bin:$PATH"
+[ -d "$HOME/.bin" ]      && PATH="$HOME/.bin/:$PATH"
+
+# press Ctrl-D twice to quit shell
+export IGNOREEOF=1
 
 if [ -f /etc/arch-release ]; then
     OS=arch
