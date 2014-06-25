@@ -22,3 +22,6 @@
 [submodule "vim/bundle/Colour-Sampler-Pack"]
 	path = vim/bundle/Colour-Sampler-Pack
 	url = https://github.com/vim-scripts/Colour-Sampler-Pack.git
+[submodule "vim/bundle/fzf"]
+	path = vim/bundle/fzf
+	url = https://github.com/junegunn/fzf.git

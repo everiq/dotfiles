@@ -122,9 +122,9 @@ fi
 # }}}
 
 ################################################################################
-# OPAM configuration {{{
+# Misc {{{
 
 load_file ".opam/opam-init/init.sh"
+load_file ".fzf.bash"
 
 # }}}
-
