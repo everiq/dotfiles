@@ -5,16 +5,11 @@
 " (better to make it the first command of vimrc)
 set nocompatible
 
-" Ensure magic is enabled to avoid compatability problems (on by default).
+" Ensure magic is enabled to avoid compatability problems (on by default)
 set magic
 
 " Allow hidden buffers
 set hidden
-
-set showcmd
-
-" Read file automatically when it has been changed outside vim
-set autoread
 
 " Write file automatically
 set autowrite
@@ -25,7 +20,7 @@ set autowrite
 set backupdir=./.backup,~/.backup,.,/tmp
 
 " Set vim history length
-set history=500
+set history=1000
 
 " ignore equals characters in filenames allowing better filename completion with
 " CTRL-X, CTRL-F
@@ -48,19 +43,16 @@ set autowrite
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Indents
 
-" Erase autoindents, join lines and make backspace work past insert location
-set backspace=indent,eol,start whichwrap+=<,>,[,]
+set whichwrap+=<,>,[,]
 
 filetype plugin indent on
 
 " Indent tabs by 4
-set shiftwidth=4 softtabstop=4 tabstop=4
-" set shiftwidth=2 softtabstop=2 tabstop=2
+"set shiftwidth=4 softtabstop=4 tabstop=4
+set shiftwidth=2 softtabstop=2 tabstop=2
 " Replace tabs with spaces by default
 set expandtab
 
-" Enable autoindent and smartindent
-set autoindent
 " set smartindent
 set cindent
 
@@ -70,7 +62,7 @@ set cindent
 " {{{ Editing
 
 " Enable incremental search, ignore case by default
-set incsearch ignorecase hlsearch smartcase
+set ignorecase hlsearch smartcase
 
 " Use g-modifier in s/../../g by default
 "set gdefault
@@ -100,6 +92,10 @@ autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " Register OCaml extensions
 autocmd BufRead,BufNewFile *.ml,*.mli compiler ocaml
 
+" Nifty hack to read pdf/doc from vim
+autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
+autocmd BufReadPost *.doc silent %!antiword "%"
+
 set completeopt=menuone,menu,longest,preview
 
 set formatoptions+=n " recognize numbered lists
@@ -112,7 +108,7 @@ set formatoptions-=ro " do not insert comment leader on <ENTER> or 'o'
 " {{{ Visual appearance
 
 set listchars=tab:»·,trail:·,precedes:<,extends:>
-"set list
+set list
 
 " Do not wrap lines by default
 set nowrap
@@ -121,10 +117,6 @@ set nowrap
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.a,*.class,*.so,*.obj,*.swp
 
-" Show cursor position (not important since we override status line anyway)
-set ruler
-
-set laststatus=2
 set statusline=%02n:%<%f\ %h%m%r%{GetPasteFlag()}\ %Y%=%-14.(%l/%L,%c%V%)\ %P
 
 " Disable beep on errorneous actions
@@ -133,7 +125,7 @@ set novisualbell " it disables bells since t_vb is cleared
 set t_vb=
 
 " Mouse support
-set mouse=a
+"set mouse=a
 set mousehide
 
 " Rewrite terminal title
@@ -147,8 +139,8 @@ if has("gui_running")
     set guioptions=aegit
 
     "set guifont=Monospace\ 9 " this is good for my ux31a laptop
-    "set guifont=GohuFont\ 11 " custom font from ~/.fonts
     "set guifont=Neep\ 10
+    set guifont=Inconsolata\ Medium\ 12
 endif
 
 "if &term =~ "xterm\\|rxvt"
@@ -241,9 +233,6 @@ nmap <leader>aa :A<CR>
 nmap <leader>as :AS<CR>
 nmap <leader>av :AV<CR>
 
-" Clean hlsearch on CTRL-L
-nnoremap <C-L> :nohl<CR><C-L>
-
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -253,10 +242,12 @@ autocmd FileType cpp inoreabbrev <silent> <buffer> //-- //----------------------
 autocmd FileType cpp inoreabbrev <silent> <buffer> //// ////////////////////////////////////////////////////////////////////////////////<CR><CR><UP>
 autocmd FileType cpp inoreabbrev <silent> <buffer> //== //======================================
 autocmd FileType cpp inoreabbrev <silent> <buffer> #### ########################################<CR>#<CR>#<UP>
-autocmd FileType cpp inoreabbrev <silent> <buffer> /** /**<CR><CR>/<UP> TODO(server):
+autocmd FileType cpp inoreabbrev <silent> <buffer> /** /**<CR><CR>/<UP> TODO(sergey):
 autocmd FileType cpp inoreabbrev <silent> <buffer> todo // TODO(sergey):
 autocmd FileType cpp inoreabbrev <silent> <buffer> ifndef #ifndef<CR>#define<CR><CR>#endif<UP><UP><UP><END>
 autocmd FileType cpp inoreabbrev <silent> <buffer> ifdef #ifdef<CR>#endif<UP><END>
+
+autocmd FileType ocaml inoreabbrev <silent> <buffer> todo (* TODO(sergey): *)<LEFT><LEFT><LEFT>
 
 " }}}
 
@@ -275,11 +266,14 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Plugins
 
+" Start pathogen
+execute pathogen#infect()
+
 " Use man page lookup ':Man [<section>] <title>'
 runtime! ftplugin/man.vim
 
 " Automatically regenerate helptags
-helptags $HOME/.vim/doc
+"helptags $HOME/.vim/doc
 
 "
 " BufExplorer
@@ -287,12 +281,6 @@ helptags $HOME/.vim/doc
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:bufExplorerShowDirectories=1
-
-"
-" TagList
-"
-let g:Tlist_Exit_OnlyWindow = 1
-let g:Tlist_Highlight_Tag_On_BufEnter = 1
 
 "
 " Merlin (Additional support for OCaml)
@@ -329,6 +317,9 @@ set t_Co=256
 "colorscheme zenburn
 colorscheme wombat256mod
 
-" }}}
+" Highlight too long lines
+highlight OverLength ctermbg=darkblue ctermfg=cyan guibg=darkblue guifg=cyan
+match OverLength /\%141v.*/
 
+" }}}
 

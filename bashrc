@@ -22,19 +22,26 @@ set -o vi
 
 shopt -s checkwinsize
 
+# Append to the history file, do not override it
+shopt -s histappend
+
 # don't put duplicate lines in the history and ignore lines starting from space
 export HISTCONTROL=ignoreboth
 export HISTSIZE=10240
 # save history timestamps
 export HISTTIMEFORMAT='%F %T '
 
+# Integration with ccache
 if [ -d "/usr/lib/ccache" ]; then
     export PATH="/usr/lib/ccache:$PATH"
     export CCACHE_PATH="/usr/bin"
 fi
 
-# Include custom bin to the search path
-[ -d "$HOME/.bin" ] && export PATH="$HOME/.bin/:$PATH"
+[ -d "$HOME/local/bin" ] && export PATH="$HOME/local/bin:$PATH"
+[ -d "$HOME/.bin" ]      && export PATH="$HOME/.bin/:$PATH"
+
+# press Ctrl-D twice to quit shell
+export IGNOREEOF=1
 
 if [ -f /etc/arch-release ]; then
     OS=arch
