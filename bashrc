@@ -8,9 +8,7 @@
 #
 
 # Load global bash profile
-if [ -r '/etc/profile' ]; then
-    source /etc/profile
-fi
+[ -r '/etc/profile' ] && source /etc/profile
 
 ################################################################################
 # General {{{
@@ -30,10 +28,13 @@ export HISTSIZE=10240
 # save history timestamps
 export HISTTIMEFORMAT='%F %T '
 
-# Include custom bin to the search path
-if [ -d "$HOME/.bin" ]; then
-    PATH="$HOME/.bin/:$PATH"
+if [ -d "/usr/lib/ccache" ]; then
+    export PATH="/usr/lib/ccache:$PATH"
+    export CCACHE_PATH="/usr/bin"
 fi
+
+# Include custom bin to the search path
+[ -d "$HOME/.bin" ] && export PATH="$HOME/.bin/:$PATH"
 
 if [ -f /etc/arch-release ]; then
     OS=arch
