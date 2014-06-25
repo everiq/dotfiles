@@ -335,5 +335,9 @@ set t_Co=256
 "colorscheme zenburn
 colorscheme wombat256mod
 
+" Highlight too long lines
+highlight OverLength ctermbg=darkblue ctermfg=cyan guibg=darkblue guifg=cyan
+match OverLength /\%141v.*/
+
 " }}}
 
