@@ -1,6 +1,6 @@
 [submodule "vim/bundle/a.vim"]
 	path = vim/bundle/a.vim
-	url = https://github.com/vim-scripts/a.vim.git
+	url = git@github.com:everiq/a.vim.git
 [submodule "vim/bundle/vim-wombat256i"]
 	path = vim/bundle/vim-wombat256i
 	url = https://github.com/dsolstad/vim-wombat256i.git
