@@ -23,10 +23,12 @@
 	ff = merge --ff-only
 	unstage = reset HEAD --
 	last = log -1 HEAD
-	ll = log --format='%C(auto) %h - %ar, %an%d: %s' --decorate
-	l1 = log --oneline --decorate
+	ll = log --oneline --decorate
+	lll = log --format='%C(auto) %h - %ar, %an%d: %s' --decorate
+	lg = log --oneline --decorate --graph
 	graph = log --graph --oneline --decorate
 	diffi = diff --ignore-space-change
+	diffc = diff --cached
 	check = diff --check
 	vimdiff = difftool -y -t vimdiff
 	commit-update = commit --amend --no-edit

@@ -125,6 +125,8 @@ fi
 # Misc {{{
 
 load_file ".opam/opam-init/init.sh"
-load_file ".fzf.bash"
+
+# Disable Fuzzy Finder (breakes standard bash command line completion)
+#load_file ".fzf.bash"
 
 # }}}
