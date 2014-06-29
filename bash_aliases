@@ -88,8 +88,7 @@ if [ "$OS" = "debian" ]; then
     alias apti='sudo aptitude install'
     alias aptti='sudo aptitude -t testing install'
     alias aptu='sudo aptitude update'
-    alias aptuu='aptu && sudo aptitude safe-upgrade'
-    alias aptUU='aptu && sudo aptitude upgrade'
+    alias aptU='sudo aptitude upgrade'
     alias aptc='sudo apt-get autoremove && sudo apt-get clean'
 fi
 

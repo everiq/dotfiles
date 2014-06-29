@@ -4,13 +4,15 @@ Configuration files
 Installation
 ------------
 
-To replicate on a fresh box:
+To replicate environment on a fresh box:
 
     mkdir ~/Work
     cd ~/Work
     git clone https://github.com/everiq/dotfiles.git
     cd dotfiles
     sh bin/deploy_env.sh
+
+    sudo ./bin/packages.sh
 
 **WARNING**: This will wipe out all existing dot-files and replace them with references to `$ENV/<file>`.
 
