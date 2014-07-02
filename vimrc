@@ -48,8 +48,8 @@ set whichwrap+=<,>,[,]
 filetype plugin indent on
 
 " Indent tabs by 4
-set shiftwidth=4 softtabstop=4 tabstop=4
-"set shiftwidth=2 softtabstop=2 tabstop=2
+"set shiftwidth=4 softtabstop=4 tabstop=4
+set shiftwidth=2 softtabstop=2 tabstop=2
 " Replace tabs with spaces by default
 set expandtab
 
@@ -323,4 +323,3 @@ highlight OverLength ctermbg=black ctermfg=grey guibg=black guifg=grey
 match OverLength /\%141v.*/
 
 " }}}
-
