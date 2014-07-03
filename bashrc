@@ -90,7 +90,11 @@ white=$( tput setaf 7)
 reset=$( tput sgr0   )
 # }}}
 
-PS1="\[$green\][\[$yellow\]\A\[$green\] \W]\$\[$reset\] "
+function setup_prompt {
+  local git_branch='$(__git_ps1 "%s")'
+  PS1="\[$green\][\[$yellow\]\A \[$green\]\W \[$purple\]($git_branch)\[$green\]] \$\[$reset\] "
+}
+setup_prompt
 
 # }}}
 
