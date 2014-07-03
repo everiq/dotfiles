@@ -117,7 +117,7 @@ set nowrap
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.a,*.class,*.so,*.obj,*.swp
 
-set statusline=%02n:%<%f\ %h%m%r%{GetPasteFlag()}\ %Y%=%-14.(%l/%L,%c%V%)\ %P
+set statusline=%02n:%<%f\ %h%m%r%{GetPasteFlag()}%{fugitive#statusline()}\ %Y%=%-14.(%l/%L,%c%V%)\ %P
 
 " Disable beep on errorneous actions
 set noerrorbells
