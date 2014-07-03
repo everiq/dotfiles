@@ -317,6 +317,11 @@ set t_Co=256
 "colorscheme zenburn
 colorscheme wombat256mod
 
+"let xterm16_colormap = 'allblue'
+"let xterm16_brightness = 'high'
+"let xterm16bg_Normal = 'none'
+"colorscheme xterm16
+
 " Highlight too long lines
 "highlight OverLength ctermbg=grey ctermfg=cyan guibg=grey guifg=cyan
 highlight OverLength ctermbg=black ctermfg=grey guibg=black guifg=grey
