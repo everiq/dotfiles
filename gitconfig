@@ -31,7 +31,8 @@
 	diffc = diff --cached
 	check = diff --check
 	vimdiff = difftool -y -t vimdiff
-	commit-update = commit --amend --no-edit
+	commit-append = commit --amend --no-edit
+	commit-amend = commit --amend
 	out = cherry --abbrev --verbose
 [credential]
 	helper = cache --timeout=3600
