@@ -158,7 +158,7 @@ alias py2='`which python2`'
 alias py3='`which python3`'
 alias py=py3
 
-alias mk=make -j3
+alias mk='make -j3'
 
 # }}}
 

@@ -33,6 +33,7 @@
 	vimdiff = difftool -y -t vimdiff
 	commit-update = commit --amend --no-edit
 	out = cherry --abbrev --verbose
+	p = pull --ff-only --verbose
 [credential]
 	helper = cache --timeout=3600
 [pager]
