@@ -34,6 +34,7 @@
 	commit-append = commit --amend --no-edit
 	commit-amend = commit --amend
 	out = cherry --abbrev --verbose
+	p = pull --ff-only --verbose
 [credential]
 	helper = cache --timeout=3600
 [pager]
