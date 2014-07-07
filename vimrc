@@ -102,6 +102,9 @@ set formatoptions+=n " recognize numbered lists
 set formatoptions+=j " remove a comment leader when joining lines
 set formatoptions-=ro " do not insert comment leader on <ENTER> or 'o'
 
+" Where to search for a file (dir of the current file, then current dir, then everything beneath)
+set path=.,,**
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,6 +236,11 @@ nmap <leader>aa :A<CR>
 nmap <leader>as :AS<CR>
 nmap <leader>av :AV<CR>
 
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -248,6 +256,8 @@ autocmd FileType cpp inoreabbrev <silent> <buffer> ifndef #ifndef<CR>#define<CR>
 autocmd FileType cpp inoreabbrev <silent> <buffer> ifdef #ifdef<CR>#endif<UP><END>
 
 autocmd FileType ocaml inoreabbrev <silent> <buffer> todo (* TODO(sergey): *)<LEFT><LEFT><LEFT>
+
+cabbrev tabv tab sview +setlocal\ nomodifiable
 
 " }}}
 
