@@ -48,13 +48,12 @@ set whichwrap+=<,>,[,]
 filetype plugin indent on
 
 " Indent tabs by 4
-set shiftwidth=4 softtabstop=4 tabstop=4
-"set shiftwidth=2 softtabstop=2 tabstop=2
+"set shiftwidth=4 softtabstop=4 tabstop=4
 " Replace tabs with spaces by default
-set expandtab
+"set expandtab
 
-" set smartindent
-set cindent
+"set smartindent
+"set cindent
 
 " }}}
 
