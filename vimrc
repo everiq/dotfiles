@@ -141,8 +141,8 @@ if has("gui_running")
     set guioptions=aegit
 
     "set guifont=Monospace\ 9 " this is good for my ux31a laptop
-    "set guifont=Neep\ 10
-    set guifont=Inconsolata\ Medium\ 12
+    set guifont=Monospace\ 10 " this is good for the machine @ ahrefs
+    "set guifont=Inconsolata\ Medium\ 12
 endif
 
 "if &term =~ "xterm\\|rxvt"
@@ -338,3 +338,12 @@ match OverLength /\%141v.*/
 
 " }}}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{ Host specific config
+
+let hostfile = $HOME . '/.vimrc-' . substitute(hostname(), "\\..*", "", "")
+if filereadable(hostfile)
+    exe 'source ' . hostfile
+endif
+
+" }}}
