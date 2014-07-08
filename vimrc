@@ -218,6 +218,9 @@ map Q gq
 nnoremap Q gqap
 vnoremap Q gq
 
+" F2 - FuzzyFinder
+nnoremap <F2> :FZF<CR>
+
 " F8 - error navigation
 nnoremap <F8> :cnext<CR>
 nnoremap <S-F8> :cprev<CR>
