@@ -24,7 +24,7 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	ll = log --oneline --decorate
-	lll = log --format='%C(auto) %h - %ar, %an%d: %s' --decorate
+	la = log --format='%C(auto) %h - %ar %an: %s%d' --decorate
 	lg = log --oneline --decorate --graph
 	graph = log --graph --oneline --decorate
 	diffi = diff --ignore-space-change
