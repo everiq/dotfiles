@@ -104,6 +104,9 @@ set formatoptions-=ro " do not insert comment leader on <ENTER> or 'o'
 " Where to search for a file (dir of the current file, then current dir, then everything beneath)
 set path=.,,**
 
+" Automatically append current directory when opening new files
+set autochdir
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +120,7 @@ set nowrap
 
 " Enable wildmenu
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=*.o,*.a,*.class,*.so,*.obj,*.swp
+set wildignore=*.o,*.a,*.class,*.so,*.obj,*.swp,*.pyc,*.bak,*.byte,*.native
 
 set statusline=%02n:%<%f\ %h%m%r%{GetPasteFlag()}%{fugitive#statusline()}\ %Y%=%-14.(%l/%L,%c%V%)\ %P
 
@@ -162,11 +165,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Mappings
 
-" Use F11 for paste mode switch
-set pastetoggle=<F11>
-" force CTRL-L after F11 to update status line
-nnoremap <silent> <F11> <F11><C-L>
-
 " Save with sudo
 cmap w!! %!sudo tee > /dev/null %
 
@@ -188,15 +186,24 @@ map ; :
 " Prettify XML
 map _xml <ESC>:1,$!xmllint --format -<CR>
 
+" F2 - FuzzyFinder
+nnoremap <F2> :FZF<CR>
+
 " Build integration
 nnoremap <silent> <F5> :make -j3<CR>
 nnoremap <silent> <C-F5> :make -j3 test<CR>
 
-" Tag List
-nnoremap <silent> <F9> :TlistToggle<CR>
+" F8 - error navigation
+nnoremap <F8> :cnext<CR>
+nnoremap <S-F8> :cprev<CR>
 
 " NERD tree
 nnoremap <silent> <F10> :NERDTreeToggle<CR>
+
+" Use F11 for paste mode switch
+set pastetoggle=<F11>
+" force CTRL-L after F11 to update status line
+nnoremap <silent> <F11> <F11><C-L>
 
 " Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
 nnoremap <silent> <F12> :BufExplorer<CR>
@@ -218,13 +225,6 @@ map Q gq
 nnoremap Q gqap
 vnoremap Q gq
 
-" F2 - FuzzyFinder
-nnoremap <F2> :FZF<CR>
-
-" F8 - error navigation
-nnoremap <F8> :cnext<CR>
-nnoremap <S-F8> :cprev<CR>
-
 let mapleader=' '
 
 " Easy window navigation (SPACE h/j/k/l)
@@ -234,9 +234,13 @@ nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l
 nnoremap <leader>w <C-W>v<C-W>l " open v-split and switch to it
 
+" Fast switching between header/source files
 nmap <leader>aa :A<CR>
 nmap <leader>as :AS<CR>
 nmap <leader>av :AV<CR>
+
+nmap <leader>ev :edit $MYVIMRC<CR>
+nmap <leader>sv :source $MYVIMRC<CR>
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
@@ -279,6 +283,7 @@ endfunction
 " {{{ Plugins
 
 " Start pathogen
+execute pathogen#helptags()
 execute pathogen#infect()
 
 " Use man page lookup ':Man [<section>] <title>'
