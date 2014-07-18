@@ -90,11 +90,9 @@ white=$( tput setaf 7)
 reset=$( tput sgr0   )
 # }}}
 
-function setup_prompt {
-  local git_branch='$(__git_ps1 "%s")'
-  PS1="\[$green\][\[$yellow\]\A \[$green\]\W \[$purple\]($git_branch)\[$green\]] \$\[$reset\] "
-}
-setup_prompt
+__git_branch='$(__git_ps1 "%s")'
+__git_stash_status='$(git stash list 2>/dev/null | wc -l | sed -e "/^0$/d" -e "s/^.\+$/\ +{\0}/")'
+PS1="\[$green\][\[$yellow\]\A \[$green\]\w \[$purple\]($__git_branch$__git_stash_status)\[$green\]] \$\[$reset\] "
 
 # }}}
 
