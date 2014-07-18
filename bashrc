@@ -74,36 +74,12 @@ export GTEST_COLOR=yes
 # }}}
 
 ################################################################################
-# Prompt {{{
-#
-
-# Colors for prompt {{{
-bold=$(  tput bold   )
-black=$( tput setaf 0)
-red=$(   tput setaf 1)
-green=$( tput setaf 2)
-yellow=$(tput setaf 3)
-blue=$(  tput setaf 4)
-purple=$(tput setaf 5)
-cyan=$(  tput setaf 6)
-white=$( tput setaf 7)
-reset=$( tput sgr0   )
-# }}}
-
-__git_branch='$(__git_ps1 "%s")'
-__git_stash_status='$(git stash list 2>/dev/null | wc -l | sed -e "/^0$/d" -e "s/^.\+$/\ +{\0}/")'
-PS1="\[$green\][\[$yellow\]\A \[$green\]\w \[$purple\]($__git_branch$__git_stash_status)\[$green\]] \$\[$reset\] "
-
-# }}}
-
-################################################################################
 # Load external definitions {{{
 #
 
 function load_file()
 {
-    local file="$HOME/$1"
-
+    local file="$1"
     if [ -r "$file" ]; then
         echo "loading $file ..."
         source "$file" >/dev/null 2>&1 || true
@@ -112,9 +88,10 @@ function load_file()
 
 function reload_env()
 {
-    load_file ".bash_aliases"
-    load_file ".bash_functions"
-    load_file ".bash_private"
+    local rcdir="$HOME/.bashrc.d"
+    for script in $(find -L $rcdir -type f | sort); do
+        load_file $script
+    done
 }
 
 if [ "$TERM" != "dumb" ]; then
@@ -126,9 +103,8 @@ fi
 ################################################################################
 # Misc {{{
 
-load_file ".opam/opam-init/init.sh"
+load_file "$HOME/.opam/opam-init/init.sh"
 
 # Disable Fuzzy Finder (breakes standard bash command line completion)
-#load_file ".fzf.bash"
 
 # }}}

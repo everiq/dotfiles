@@ -79,9 +79,6 @@ fi
 # Nifty shortcuts {{{
 #
 
-alias vim_aliases='vim ~/.bash_aliases'
-alias vim_functions='vim ~/.bash_functions'
-
 # Aptitude
 if [ "$OS" = "debian" ]; then
     alias apts='aptitude search'

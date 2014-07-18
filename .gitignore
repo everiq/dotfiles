@@ -10,3 +10,5 @@ vim/.*
 # Vim swap files
 *.swp
 
+# Private bash files
+bashrc.d/*private*
