@@ -105,7 +105,7 @@ set formatoptions-=ro " do not insert comment leader on <ENTER> or 'o'
 set path=.,,**
 
 " Automatically append current directory when opening new files
-set autochdir
+"set autochdir
 
 " }}}
 
@@ -226,6 +226,7 @@ nnoremap Q gqap
 vnoremap Q gq
 
 let mapleader=' '
+let maplocalleader=' '
 
 " Easy window navigation (SPACE h/j/k/l)
 nnoremap <leader>h <C-W>h

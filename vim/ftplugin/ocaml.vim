@@ -18,7 +18,7 @@ let b:did_ftplugin=1
 
 " iabbrev <buffer> \ (fun -> )<Esc>4h<Ins>
 
-map <C-B> <Esc>:call OCamlBuild(expand('%:r').'.byte')<CR>
+"map <C-B> <Esc>:call OCamlBuild(expand('%:r').'.byte')<CR>
 "map <C-N> <Esc>:call Run(expand('%:r').'.byte')<CR>
 
 " Error handling -- helps moving where the compiler wants you to go
