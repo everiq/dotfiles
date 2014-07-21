@@ -89,7 +89,7 @@ function load_file()
 function reload_env()
 {
     local rcdir="$HOME/.bashrc.d"
-    for script in $(find -L $rcdir -type f | sort); do
+    for script in $(find -L $rcdir -type f | grep -v '.sw[a-z]$' | sort); do
         load_file $script
     done
 }
