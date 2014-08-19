@@ -4,5 +4,6 @@ let () =
   with Not_found -> ()
 ;;
 
-#require "core.top"
+#use "topfind"
+#require "extlib"
 
