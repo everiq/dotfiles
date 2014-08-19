@@ -22,8 +22,9 @@
 	st = status -sb
 	ff = merge --ff-only
 	unstage = reset HEAD --
-	last = log -1 HEAD
+	last = log -1 HEAD --stat
 	ll = log --oneline --decorate
+	lh = log --oneline --decorate master..HEAD
 	la = log --format='%C(auto) %h - %ar %an: %s%d' --decorate
 	lg = log --oneline --decorate --graph
 	graph = log --graph --oneline --decorate
