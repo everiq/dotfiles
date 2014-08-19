@@ -82,10 +82,10 @@ fi
 # Aptitude
 if [ "$OS" = "debian" ]; then
     alias apts='aptitude search'
-    alias apti='sudo aptitude install'
-    alias aptti='sudo aptitude -t testing install'
+    alias apti='sudo aptitude install -R'
+    alias aptti='sudo aptitude -t testing install -R'
     alias aptu='sudo aptitude update'
-    alias aptU='sudo aptitude upgrade'
+    alias aptU='sudo aptitude upgrade -R'
     alias aptc='sudo apt-get autoremove && sudo apt-get clean'
 fi
 
