@@ -13,6 +13,8 @@ set hidden
 
 " Write file automatically
 set autowrite
+" Try to read file automatically
+set autoread
 
 " Disable backup files
 " set nobackup
@@ -120,7 +122,7 @@ set nowrap
 
 " Enable wildmenu
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=*.o,*.a,*.class,*.so,*.obj,*.swp,*.pyc,*.bak,*.byte,*.native
+set wildignore=*.o,*.a,*.class,*.so,*.obj,*.swp,*.pyc,*.bak,*.byte,*.native,*.annot,*.cm[a-z],*.cmti
 
 set statusline=%02n:%<%f\ %h%m%r%{GetPasteFlag()}%{fugitive#statusline()}\ %Y%=%-14.(%l/%L,%c%V%)\ %P
 
@@ -240,9 +242,6 @@ nmap <leader>aa :A<CR>
 nmap <leader>as :AS<CR>
 nmap <leader>av :AV<CR>
 
-nmap <leader>ev :edit $MYVIMRC<CR>
-nmap <leader>sv :source $MYVIMRC<CR>
-
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
@@ -282,6 +281,9 @@ endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Plugins
+
+" Disable DrawIt to avoid mapping conflicts with OCaml bindings
+let g:loaded_DrawItPlugin = "DISABLE"
 
 " Start pathogen
 execute pathogen#helptags()

@@ -31,3 +31,6 @@
 [submodule "vim/bundle/vim-sleuth"]
 	path = vim/bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
+[submodule "vim/bundle/DrawIt"]
+	path = vim/bundle/DrawIt
+	url = https://github.com/vim-scripts/DrawIt.git
