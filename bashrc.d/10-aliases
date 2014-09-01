@@ -112,9 +112,6 @@ alias cd.='cd ~/Work/dotfiles'
 alias cduva='cd ~/Work/puzzles/uva'
 alias cdspoj='cd ~/Work/puzzles/spoj'
 
-alias cdtrello='cd ~/Work/trello.py'
-alias cdtr=cdtrello
-
 alias cdblog='cd ~/Work/blog'
 alias cdb=cdblog
 
