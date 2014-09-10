@@ -32,6 +32,7 @@
 	diffc = diff --cached
 	check = diff --check
 	vimdiff = difftool -y -t vimdiff
+	meldiff = difftool -y -t meld
 	commit-append = commit --amend --no-edit
 	commit-amend = commit --amend
 	out = cherry --abbrev --verbose
