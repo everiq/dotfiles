@@ -1,0 +1,2 @@
+# Force colorfull output from gtest 
+export GTEST_COLOR=yes

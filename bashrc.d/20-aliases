@@ -18,6 +18,7 @@ alias lt='ls -lrt'      # sort by date
 alias lz='ll -rS'       # sort by size
 
 alias less='less -R'
+alias leSS='less -S'
 
 alias rm='rm -v'
 alias mv='mv -v'
@@ -183,6 +184,8 @@ alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias psg='ps -Af | grep'           # requires an argument
 
 alias wget='wget --trust-server-names'
+
+alias dmssh='ssh -S none -A'
 
 # }}}
 
