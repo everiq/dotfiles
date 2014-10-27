@@ -37,6 +37,7 @@
 	commit-amend = commit --amend
 	out = cherry --abbrev --verbose
 	p = pull --ff-only --verbose
+	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
 [credential]
 	helper = cache --timeout=3600
 [pager]
