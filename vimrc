@@ -109,6 +109,8 @@ set path=.,,**
 " Automatically append current directory when opening new files
 "set autochdir
 
+autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
