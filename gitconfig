@@ -19,23 +19,26 @@
 	co = checkout
 	br = branch
 	ci = commit
+	cp = cherry-pick
 	st = status -sb
 	ff = merge --ff-only
 	unstage = reset HEAD --
 	last = log -1 HEAD --stat
 	ll = log --oneline --decorate
 	lh = log --oneline --decorate master..HEAD
-	la = log --format='%C(auto) %h - %ar %an: %s%d' --decorate
+	la = log --pretty=format:"%C(yellow)%h\\ %ad\\ %Cgreen%an\\ %Creset%s%C(cyan)%d%Creset" --date=short
 	lg = log --oneline --decorate --graph
-	graph = log --graph --oneline --decorate
+	ln = log --reverse @{1}..@{0}
+	li = log --reverse ..@{upstream}
+	lo = log --reverse @{upstream}..
 	diffi = diff --ignore-space-change
 	diffc = diff --cached
+	diff1 = diff HEAD^ HEAD
 	check = diff --check
 	vimdiff = difftool -y -t vimdiff
 	meldiff = difftool -y -t meld
 	commit-append = commit --amend --no-edit
 	commit-amend = commit --amend
-	out = cherry --abbrev --verbose
 	p = pull --ff-only --verbose
 	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
 [credential]
