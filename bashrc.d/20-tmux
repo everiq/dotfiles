@@ -6,6 +6,3 @@ load_file $TMUX_FILE
 alias t_main='tmux new -A -s Main'
 alias t_temp='tmux new -A -s Temp'
 alias t_list='tmux list-sessions'
-
-alias xx='tmux save-buffer - | xclip -i -sel clipboard'
-
