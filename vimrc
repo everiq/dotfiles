@@ -311,10 +311,10 @@ let g:bufExplorerShowDirectories=1
 
 "
 " Merlin (Additional support for OCaml)
-" 
-let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
-execute "set rtp+=".s:ocamlmerlin."/vim"
-execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+"
+let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=".g:opamshare."/merlin/vim"
+execute "helptags ".g:opamshare."/merlin/vim/doc"
 
 "
 " Zenburn (colorscheme)
@@ -329,6 +329,7 @@ let g:zenburn_high_Contrast=1
 let g:fuf_file_exclude = '\v\~$|\.(a|so|o|exe|dll|bak|orig|swp|cm.+|annot|byte|native)$|(^|[/\\])(_o?build|\.(hg|git|bzr))($|[/\\])'
 
 " }}}
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Syntax highlighting

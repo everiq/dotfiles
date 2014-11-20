@@ -37,3 +37,9 @@
 [submodule "vim/bundle/l9"]
 	path = vim/bundle/l9
 	url = git@github.com:vim-scripts/L9.git
+[submodule "vim/bundle/ocp-index"]
+	path = vim/bundle/ocp-index
+	url = git@github.com:OCamlPro/ocp-index.git
+[submodule "vim/bundle/ocp-indent"]
+	path = vim/bundle/ocp-indent
+	url = git@github.com:OCamlPro/ocp-indent.git
