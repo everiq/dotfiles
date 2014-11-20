@@ -190,8 +190,9 @@ map ; :
 " Prettify XML
 map _xml <ESC>:1,$!xmllint --format -<CR>
 
-" F2 - FuzzyFinder
-nnoremap <F2> :FZF<CR>
+nmap <F2> :FufFile **/<CR>
+nmap <F3> :FufLine<CR>
+nmap <F4> :FufBuffer<CR>
 
 " Build integration
 nnoremap <silent> <F5> :make -j3<CR>
@@ -238,6 +239,10 @@ nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l
 nnoremap <leader>w <C-W>v<C-W>l " open v-split and switch to it
+
+" Resize splits
+nnoremap <silent> <leader>L :exe "vertical resize " . (winwidth(0) * 6/5)<CR>
+nnoremap <silent> <leader>H :exe "vertical resize " . (winwidth(0) * 5/6)<CR>
 
 " Fast switching between header/source files
 nmap <leader>aa :A<CR>
@@ -317,6 +322,11 @@ execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
 let g:zenburn_high_Contrast=1
 "let g:zenburn_transparent=1
 "let g:zenburn_alternate_Visual=1
+
+"
+" FuzzyFinder
+"
+let g:fuf_file_exclude = '\v\~$|\.(a|so|o|exe|dll|bak|orig|swp|cm.+|annot|byte|native)$|(^|[/\\])(_o?build|\.(hg|git|bzr))($|[/\\])'
 
 " }}}
 
