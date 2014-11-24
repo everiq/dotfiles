@@ -43,3 +43,6 @@
 [submodule "vim/bundle/ocp-indent"]
 	path = vim/bundle/ocp-indent
 	url = git@github.com:OCamlPro/ocp-indent.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git

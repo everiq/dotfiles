@@ -187,5 +187,7 @@ alias wget='wget --trust-server-names'
 
 alias dmssh='ssh -S none -A'
 
+alias json_pp='python -c "import sys, json; print json.dumps(json.load(sys.stdin), sort_keys=True, indent=4)"'
+
 # }}}
 

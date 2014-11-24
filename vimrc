@@ -190,9 +190,9 @@ map ; :
 " Prettify XML
 map _xml <ESC>:1,$!xmllint --format -<CR>
 
-nmap <F2> :FufFile **/<CR>
-nmap <F3> :FufLine<CR>
-nmap <F4> :FufBuffer<CR>
+nmap <C-F> :FufFile **/<CR>
+nmap <C-K> :FufLine<CR>
+nmap <C-B> :FufBuffer<CR>
 
 " Build integration
 nnoremap <silent> <F5> :make -j3<CR>
@@ -315,6 +315,8 @@ let g:bufExplorerShowDirectories=1
 let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=".g:opamshare."/merlin/vim"
 execute "helptags ".g:opamshare."/merlin/vim/doc"
+
+autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<C-X><C-O>")
 
 "
 " Zenburn (colorscheme)
