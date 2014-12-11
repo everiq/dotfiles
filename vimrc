@@ -175,6 +175,8 @@ cmap w!! %!sudo tee > /dev/null %
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
+nmap <silent> <C-N> :set invnumber<CR>
+
 " Move within long lines
 noremap j gj
 noremap k gk
@@ -189,10 +191,6 @@ map ; :
 
 " Prettify XML
 map _xml <ESC>:1,$!xmllint --format -<CR>
-
-nmap <C-F> :FufFile **/<CR>
-nmap <C-K> :FufLine<CR>
-nmap <C-B> :FufBuffer<CR>
 
 " Build integration
 nnoremap <silent> <F5> :make -j3<CR>
@@ -253,6 +251,8 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " }}}
 
@@ -316,7 +316,7 @@ let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=".g:opamshare."/merlin/vim"
 execute "helptags ".g:opamshare."/merlin/vim/doc"
 nnoremap <LocalLeader>d :Locate<CR>
-
+autocmd FileType ocaml nnoremap <C-L> :ClearEnclosing<CR><C-L>
 autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<C-X><C-O>")
 
 "
@@ -330,6 +330,9 @@ let g:zenburn_high_Contrast=1
 " FuzzyFinder
 "
 let g:fuf_file_exclude = '\v\~$|\.(a|so|o|exe|dll|bak|orig|swp|cm.+|annot|byte|native)$|(^|[/\\])(_o?build|\.(hg|git|bzr))($|[/\\])'
+nmap <C-F> :FufFile **/<CR>
+nmap <C-K> :FufLine<CR>
+nmap <C-B> :FufBuffer<CR>
 
 " }}}
 
