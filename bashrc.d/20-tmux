@@ -3,6 +3,6 @@
 TMUX_FILE="/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 load_file $TMUX_FILE
 
-alias t_main='tmux new -A -s Main'
-alias t_temp='tmux new -A -s Temp'
-alias t_list='tmux list-sessions'
+alias tmain='tmux new -A -s Main'
+alias ttemp='tmux new -A -s Temp'
+alias tlist='tmux list-sessions'

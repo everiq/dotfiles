@@ -148,8 +148,6 @@ alias g11='g++ -std=c++11 -g'
 # Programming {{{
 #
 
-alias g='git'
-
 alias py2='`which python2`'
 alias py3='`which python3`'
 alias py=py3
