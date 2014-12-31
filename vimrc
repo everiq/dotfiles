@@ -92,6 +92,7 @@ autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Register OCaml extensions
 autocmd BufRead,BufNewFile *.ml,*.mli compiler ocaml
+autocmd BufRead,BufNewFile *.atd set filetype=ocaml
 
 " Nifty hack to read pdf/doc from vim
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
@@ -204,9 +205,9 @@ nnoremap <S-F8> :cprev<CR>
 nnoremap <silent> <F10> :NERDTreeToggle<CR>
 
 " Use F11 for paste mode switch
-set pastetoggle=<F11>
+set pastetoggle=<A-F11>
 " force CTRL-L after F11 to update status line
-nnoremap <silent> <F11> <F11><C-L>
+nnoremap <silent> <A-F11> <A-F11><C-L>
 
 " Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
 nnoremap <silent> <F12> :BufExplorer<CR>
