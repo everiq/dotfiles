@@ -108,6 +108,8 @@ alias _='cd -'
 alias cdwork='cd ~/Work'
 alias cdw=cdwork
 
+alias cdvm='cd ~/Work/VM'
+
 alias cd.='cd ~/Work/dotfiles'
 
 alias cduva='cd ~/Work/puzzles/uva'

@@ -18,7 +18,7 @@ export HISTSIZE=10240
 export HISTTIMEFORMAT='%F %T '
 
 # After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r"
+#export PROMPT_COMMAND="history -a; history -c; history -r"
 
 # Integration with ccache
 if [ -d "/usr/lib/ccache" ]; then
