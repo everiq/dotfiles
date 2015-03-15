@@ -12,3 +12,6 @@ vim/.*
 
 # Private bash files
 bashrc.d/*private*
+
+# Ahrefs
+bin/g_*
