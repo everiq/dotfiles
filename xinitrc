@@ -25,22 +25,26 @@ fi
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
-	for f in /etc/X11/xinit/xinitrc.d/* ; do
-		[ -x "$f" ] && . "$f"
-	done
-	unset f
+    for f in /etc/X11/xinit/xinitrc.d/* ; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
 fi
 
-SESSION="xmonad"
+killall ssh-agent; eval $(ssh-agent -s)
+xrandr --output LVDS1 --right-of VGA1 --primary
+setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:scroll"
 
-if [ "$SESSION" == "xmonad" ]; then
+SESSION="i3"
+
+if [ -n "$SESSION" ]; then
     xbindkeys
 
-    if [ -f "$HOME/Pictures/background" ]; then
-        xloadimage -onroot -fullscreen "$HOME/Pictures/background"
+    if [ -r "$HOME/.fehbg" ]; then
+        sh $HOME/.fehbg
     fi
 
-    exec xmonad
+    exec $SESSION
 else
     # Launch default session
     twm &
@@ -48,4 +52,3 @@ else
     xterm -geometry 80x150+494+51 &
     exec xterm -geometry 80x66+0+0 -name login
 fi
-

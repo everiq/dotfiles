@@ -162,4 +162,3 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 bindsym Scroll_Lock exec i3lock -c 000000
-
