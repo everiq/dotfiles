@@ -5,6 +5,6 @@ if [ "$TERM" == "xterm" ]; then
 fi
 
 if [ -r "$HOME/.dircolors" ]; then
-    eval `dircolors $HOME/.dircolors`
+    eval $(dircolors $HOME/.dircolors)
 fi
 

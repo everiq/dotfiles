@@ -13,6 +13,8 @@ white=$( tput setaf 7)
 reset=$( tput sgr0   )
 # }}}
 
+[ -r /usr/share/git/completion/git-prompt.sh ] && source /usr/share/git/completion/git-prompt.sh
+
 __git_branch='$(__git_ps1 "%s")'
 __git_stash_status='$(git stash list 2>/dev/null | wc -l | sed -e "/^0$/d" -e "s/^.\+$/\ +{\0}/")'
 PS1="\[$green\][\[$yellow\]\A \[$green\]\w \[$purple\]($__git_branch$__git_stash_status)\[$green\]] \$\[$reset\] "
