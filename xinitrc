@@ -31,7 +31,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-killall ssh-agent; eval $(ssh-agent -s)
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    killall ssh-agent
+    eval $(ssh-agent -s)
+    ssh-add
+fi
+
 xrandr --output LVDS1 --right-of VGA1 --primary
 setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:scroll"
 

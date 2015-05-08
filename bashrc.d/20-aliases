@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/sh
 
 ################################################################################
 # Essentials {{{
@@ -105,27 +105,27 @@ alias ...='cd ../..'
 # Go to the previous folder
 alias _='cd -'
 
-alias cdwork='cd ~/Work'
-alias cdw=cdwork
+alias cdw='cd ~/Work'
 
 alias cdvm='cd ~/Work/VM'
 
 alias cd.='cd ~/Work/dotfiles'
+alias cd.b='cd ~/Work/dotfiles/bashrc.d'
 
+alias cdpuzzles='cd ~/Work/puzzles'
 alias cduva='cd ~/Work/puzzles/uva'
 alias cdspoj='cd ~/Work/puzzles/spoj'
+alias cdjam='cd ~/Work/puzzles/jam'
+alias cdtimus='cd ~/Work/puzzles/timus'
 
 alias cdblog='cd ~/Work/blog'
-alias cdb=cdblog
 
 alias cdpython='cd ~/Work/python'
 alias cdpy=cdpython
 
-alias cddownloads='cd ~/Downloads'
+alias cddown='cd ~/Downloads'
 
 alias cdsand='cd ~/Work/sandbox'
-
-alias cdtimus='cd ~/Work/timus'
 
 alias cdocaml='cd ~/Work/OCaml'
 

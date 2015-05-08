@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 TMUX_FILE="/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 load_file $TMUX_FILE
