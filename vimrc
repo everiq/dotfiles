@@ -49,10 +49,10 @@ set whichwrap+=<,>,[,]
 
 filetype plugin indent on
 
-" Indent tabs by 4
-"set shiftwidth=4 softtabstop=4 tabstop=4
+" Indent tabs by 4 (default
+set shiftwidth=4 softtabstop=4 tabstop=4
 " Replace tabs with spaces by default
-"set expandtab
+set expandtab
 
 "set smartindent
 "set cindent
@@ -194,8 +194,8 @@ map ; :
 map _xml <ESC>:1,$!xmllint --format -<CR>
 
 " Build integration
-nnoremap <silent> <F5> :make -j3<CR>
-nnoremap <silent> <C-F5> :make -j3 test<CR>
+nnoremap <silent> <F5> :make<CR>
+nnoremap <silent> <C-F5> :make test<CR>
 
 " F8 - error navigation
 nnoremap <F8> :cnext<CR>
