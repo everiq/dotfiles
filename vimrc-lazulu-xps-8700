@@ -1,5 +1,0 @@
-" Custom vimrc file for Ahrefs machine
-
-if has("gui_running")
-    set guifont=Monospace\ 10 " this is good for the machine @ ahrefs
-endif

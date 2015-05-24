@@ -372,9 +372,9 @@ match OverLength /\%141v.*/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{ Host specific config
 
-let hostfile = $HOME . '/.vimrc-' . substitute(hostname(), "\\..*", "", "")
-if filereadable(hostfile)
-    exe 'source ' . hostfile
-endif
+"let hostfile = $HOME . '/.vimrc-' . substitute(hostname(), "\\..*", "", "")
+"if filereadable(hostfile)
+"    exe 'source ' . hostfile
+"endif
 
 " }}}
