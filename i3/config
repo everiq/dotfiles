@@ -164,6 +164,9 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 # Lock screen
 bindsym $mod+Scroll_Lock exec i3lock -c 224455
 
+# Suspend
+bindsym $mod+Shift+Scroll_Lock exec systemctl suspend
+
 exec nm-applet # Network manager (keep running just in case)
 
 # Always execute on startup
