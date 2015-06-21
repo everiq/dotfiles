@@ -20,7 +20,7 @@ alias lz='ll -rS'       # sort by size
 alias less='less -R'
 alias leSS='less -S'
 
-alias rm='rm -v'
+#alias rm='rm -v'
 alias mv='mv -v'
 alias cp='cp -v'
 alias ln='ln -i'
@@ -185,7 +185,7 @@ alias psg='ps -Af | grep'           # requires an argument
 
 alias wget='wget --trust-server-names'
 
-alias ssh='env TERM=screen ssh'
+#alias ssh='env TERM=screen ssh'
 alias dmssh='ssh -S none -A'
 
 alias json_pp='python -c "import sys, json; print json.dumps(json.load(sys.stdin), sort_keys=True, indent=4)"'
