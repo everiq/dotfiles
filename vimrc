@@ -316,8 +316,8 @@ let g:bufExplorerShowDirectories=1
 let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=".g:opamshare."/merlin/vim"
 execute "helptags ".g:opamshare."/merlin/vim/doc"
-nnoremap <LocalLeader>d :Locate<CR>
-autocmd FileType ocaml nnoremap <C-L> :ClearEnclosing<CR>:nohl<CR><C-L>
+nnoremap <LocalLeader>d :MerlinLocate<CR>
+autocmd FileType ocaml nnoremap <C-L> :MerlinClearEnclosing<CR>:nohl<CR><C-L>
 autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<C-X><C-O>")
 
 "
