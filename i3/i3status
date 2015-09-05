@@ -11,6 +11,7 @@
 general {
         colors = true
         interval = 5
+        output_format = i3bar
 }
 
 order += cpu_usage
@@ -30,7 +31,7 @@ cpu_usage {
 }
 
 wireless wlan0 {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "W: (%quality at %essid) %ip (WLAN0_USAGE)"
         format_down = "W: down"
 }
 

@@ -153,7 +153,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command "~/.i3/i3status-wrapper.sh"
 }
 
 # Enable sound control
@@ -170,7 +170,7 @@ bindsym $mod+Shift+Scroll_Lock exec systemctl suspend
 exec nm-applet # Network manager (keep running just in case)
 
 # Always execute on startup
-exec xrandr --output LVDS1 --right-of VGA1 --primary
+#exec xrandr --output LVDS1 --right-of VGA1 --primary
 exec setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:scroll"
 exec xbindkeys
 
