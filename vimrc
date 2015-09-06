@@ -148,8 +148,9 @@ set scrolloff=2
 if has("gui_running")
     set guioptions=aegit
 
+    set guifont=Hack\ 10 " just experimental
     "set guifont=Monospace\ 9 " this is good for my ux31a laptop
-    set guifont=Monospace\ 10 " this is good for the machine @ ahrefs
+    "set guifont=Monospace\ 10 " this is good for the machine @ ahrefs
     "set guifont=Inconsolata\ Medium\ 12
 endif
 
