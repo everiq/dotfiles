@@ -171,8 +171,8 @@ exec nm-applet # Network manager (keep running just in case)
 
 # Always execute on startup
 #exec xrandr --output LVDS1 --right-of VGA1 --primary
-exec setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:scroll"
-exec xbindkeys
+#exec setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle,grp_led:scroll"
+#exec xbindkeys
 
 # Set background color
 exec xsetroot -solid "#002040"
