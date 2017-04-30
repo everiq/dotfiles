@@ -314,12 +314,12 @@ let g:bufExplorerShowDirectories=1
 "
 " Merlin (Additional support for OCaml)
 "
-let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=".g:opamshare."/merlin/vim"
-execute "helptags ".g:opamshare."/merlin/vim/doc"
-nnoremap <LocalLeader>d :MerlinLocate<CR>
-autocmd FileType ocaml nnoremap <C-L> :MerlinClearEnclosing<CR>:nohl<CR><C-L>
-autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<C-X><C-O>")
+"let g:opamshare=substitute(system('opam config var share'),'\n$','','''')
+"execute "set rtp+=".g:opamshare."/merlin/vim"
+"execute "helptags ".g:opamshare."/merlin/vim/doc"
+"nnoremap <LocalLeader>d :MerlinLocate<CR>
+"autocmd FileType ocaml nnoremap <C-L> :MerlinClearEnclosing<CR>:nohl<CR><C-L>
+"autocmd FileType ocaml call SuperTabSetDefaultCompletionType("<C-X><C-O>")
 
 "
 " Zenburn (colorscheme)
@@ -355,8 +355,8 @@ set t_Co=256
 "colorscheme torte
 "colorscheme desert
 "colorscheme molokai
-"colorscheme zenburn
-colorscheme wombat256mod
+colorscheme zenburn
+"colorscheme wombat256mod
 
 "let xterm16_colormap = 'allblue'
 "let xterm16_brightness = 'high'
